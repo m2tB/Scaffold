@@ -1,0 +1,81 @@
+# 基础配置信息
+# - runtimes_mode: 运行环境 testing | develop | product
+# - time_location: 时间区间
+# - machine_id: 机器码
+base:
+  runtime_mode: "develop"
+  time_location: "Asia/Shanghai"
+  machine_id: 1
+  snow_runtime: "2022-07-14"
+
+# 项目配置信息
+# - program_name: 项目应用名称
+# - program_version: 项目应用版本
+program:
+  program_name: "GhortLinks"
+  program_version: "1.0.0"
+
+# http配置信息
+# - http_listen_port:   项目监听端口
+# - http_reads_timeout:    读取超时时长
+# - http_write_timeout:    写入超时时长
+# - http_max_header_bytes: 最大的header大小，二进制位长度
+http:
+  http_listen_port: ":10010"
+  http_reads_timeout: 10
+  http_write_timeout: 10
+  http_max_header_bytes: 20
+
+# 项目日志配置信息
+# - journal_print_mode: 输出模式 console | file
+# - journal_record_level: 日志文件记录等级
+# - journal_debug_path:  server日志文件存储位置
+# - journal_max_io_size:  日志文件的最大大小（以MB为单位）
+# - journal_each_max_age:  保留旧文件的最大天数
+# - journal_max_backups:  保留旧文件的最大个数
+journal:
+  journal_print_mode: "console"
+  journal_record_level: "debug"
+  journal_debug_path: "../logging/server_develop.log"
+  journal_max_io_size: 200
+  journal_each_max_age: 30
+  journal_max_backups: 12
+
+# 数据库配置信息
+# - db_driver_type: 数据库驱动
+# - db_source_str: 数据库资源地址
+# - db_max_open: 数据库最大连接数
+# - db_max_idle: 数据库空闲连接数
+# - db_max_conn_lifetime: 最大存活时长
+database:
+  default:
+    db_driver_type: "mysql"
+    db_source_str: "root:vcEyD8mb%92%qWGA@tcp(10.41.15.19:3306)/go_demo?charset=utf8&parseTime=true&loc=Asia%2FShanghai"
+    db_max_open: 50
+    db_max_idle: 10
+    db_max_conn_lifetime: 100
+  db1:
+    db_driver_type: "mysql"
+    db_source_str: "root:vcEyD8mb%92%qWGA@tcp(10.41.15.19:3306)/go_demo?charset=utf8&parseTime=true&loc=Asia%2FShanghai"
+    db_max_open: 50
+    db_max_idle: 10
+    db_max_conn_lifetime: 100
+
+# 缓存配置信息
+# - redis_host: redis集群地址
+# - redis_conn_timeout: 连接超时
+# - redis_password: 连接密码
+# - redis_db_use: 使用库数量
+# - redis_read_timeout: 读超时
+# - redis_write_timeout: 写超时
+# - redis_max_open: 最大连接数
+# - redis_max_idle: 最大空闲数
+redis:
+  redis_host: "10.41.15.19:6379"
+  redis_conn_timeout: 500
+  redis_password: "vcEyD8mb%92%qWGA"
+  redis_db_use: 5
+  redis_read_timeout: 1000
+  redis_write_timeout: 1000
+  redis_max_open: 200
+  redis_max_idle: 500
